@@ -1,0 +1,2 @@
+127.0.0.1 - - [12/Apr/2016:22:07:43 +0900] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [12/Apr/2016:22:08:01 +0900] "GET /Hospital_Reservation/img/table-2-hover.jpg HTTP/1.1" 304 -
