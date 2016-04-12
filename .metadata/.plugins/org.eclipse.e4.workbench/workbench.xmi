@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_dHuqsQCuEeacKvuyPDyOHw" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_dHuqsgCuEeacKvuyPDyOHw" bindingContexts="_dHuqtACuEeacKvuyPDyOHw">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jst.jsp.core.jspsource.source&quot; name=&quot;hello.jsp&quot; tooltip=&quot;Hospital_Reservation/WebContent/hello.jsp&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Hospital_Reservation/WebContent/hello.jsp&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.wst.server.ui.editor.input.factory&quot; id=&quot;org.eclipse.wst.server.ui.editor&quot; name=&quot;Tomcat v8.0 Server at localhost&quot; tooltip=&quot;Tomcat v8.0 Server at localhost&quot;>&#xD;&#xA;&lt;persistable server-id=&quot;Tomcat v8.0 Server at localhost&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jst.jsp.core.jspsource.source&quot; name=&quot;hello.jsp&quot; tooltip=&quot;Hospital_Reservation/WebContent/hello.jsp&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Hospital_Reservation/WebContent/hello.jsp&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wst.html.core.htmlsource.source&quot; name=&quot;index.html&quot; tooltip=&quot;Hospital_Reservation/WebContent/index.html&quot;>&#xD;&#xA;&lt;persistable path=&quot;/Hospital_Reservation/WebContent/index.html&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_dHuqsgCuEeacKvuyPDyOHw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_dcnVkgCuEeacKvuyPDyOHw" label="%trimmedwindow.label.eclipseSDK" x="2105" y="94" width="1024" height="768">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_dHuqsgCuEeacKvuyPDyOHw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_dcnVkgCuEeacKvuyPDyOHw" label="%trimmedwindow.label.eclipseSDK" x="2101" y="-15" width="1024" height="768">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -11,6 +11,7 @@
     <persistedState key="aggregateWorkingSetId" value="Aggregate for window 1460466225309"/>
     <persistedState key="show_in_time" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;show_in_time/>"/>
     <tags>topLevel</tags>
+    <tags>shellMaximized</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_dcnVkgCuEeacKvuyPDyOHw" selectedElement="_dcnVkwCuEeacKvuyPDyOHw" horizontal="true">
       <children xsi:type="advanced:PerspectiveStack" xmi:id="_dcnVkwCuEeacKvuyPDyOHw" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_dohDngCuEeacKvuyPDyOHw">
         <children xsi:type="advanced:Perspective" xmi:id="_dohDngCuEeacKvuyPDyOHw" elementId="org.eclipse.jst.j2ee.J2EEPerspective" selectedElement="_dohDnwCuEeacKvuyPDyOHw" label="Java EE" iconURI="platform:/plugin/org.eclipse.jst.j2ee.ui/icons/full/cview16/j2ee_perspective.gif">
@@ -69,15 +70,14 @@
           <tags>persp.newWizSC:org.eclipse.m2e.core.wizards.Maven2ProjectWizard</tags>
           <tags>persp.showIn:org.eclipse.tm.terminal.view.ui.TerminalsView</tags>
           <tags>persp.actionSet:org.eclipse.wst.ws.explorer.explorer</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_dohDnwCuEeacKvuyPDyOHw" selectedElement="_dohDoACuEeacKvuyPDyOHw" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_dohDnwCuEeacKvuyPDyOHw" selectedElement="_dohDpQCuEeacKvuyPDyOHw" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_dohDoACuEeacKvuyPDyOHw" elementId="topLeft" containerData="2500" selectedElement="_dohDoQCuEeacKvuyPDyOHw">
-              <tags>active</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_dohDoQCuEeacKvuyPDyOHw" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_dneiHACuEeacKvuyPDyOHw"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_dohDogCuEeacKvuyPDyOHw" elementId="org.eclipse.ui.views.ResourceNavigator" toBeRendered="false" ref="_dnnrsACuEeacKvuyPDyOHw"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_dohDowCuEeacKvuyPDyOHw" elementId="org.eclipse.jdt.ui.TypeHierarchy" toBeRendered="false" ref="_dnnrsQCuEeacKvuyPDyOHw"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_dohDpACuEeacKvuyPDyOHw" elementId="org.eclipse.jdt.ui.PackagesView" toBeRendered="false" ref="_dohDkACuEeacKvuyPDyOHw"/>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_dohDpQCuEeacKvuyPDyOHw" containerData="7500" selectedElement="_dohDqwCuEeacKvuyPDyOHw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_dohDpQCuEeacKvuyPDyOHw" containerData="7500" selectedElement="_dohDpgCuEeacKvuyPDyOHw">
               <children xsi:type="basic:PartSashContainer" xmi:id="_dohDpgCuEeacKvuyPDyOHw" containerData="7000" selectedElement="_dohDpwCuEeacKvuyPDyOHw" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_dohDpwCuEeacKvuyPDyOHw" elementId="org.eclipse.ui.editorss" containerData="7000" ref="_dnUwwACuEeacKvuyPDyOHw"/>
                 <children xsi:type="basic:PartStack" xmi:id="_dohDqACuEeacKvuyPDyOHw" elementId="topRight" containerData="3000" selectedElement="_dohDqQCuEeacKvuyPDyOHw">
@@ -126,17 +126,30 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_dnUwwACuEeacKvuyPDyOHw" elementId="org.eclipse.ui.editorss" selectedElement="_dnUwwQCuEeacKvuyPDyOHw">
-      <children xsi:type="basic:PartStack" xmi:id="_dnUwwQCuEeacKvuyPDyOHw" elementId="org.eclipse.e4.primaryDataStack">
+      <children xsi:type="basic:PartStack" xmi:id="_dnUwwQCuEeacKvuyPDyOHw" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_bbf88ACvEeatpNkqPCK1Fw">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
+        <tags>active</tags>
+        <children xsi:type="basic:Part" xmi:id="_bNq8UACvEeatpNkqPCK1Fw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="hello.jsp" iconURI="platform:/plugin/org.eclipse.jst.jsp.ui/icons/full/obj16/sourceEditor.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jst.jsp.core.jspsource.source&quot; name=&quot;hello.jsp&quot; partName=&quot;hello.jsp&quot; title=&quot;hello.jsp&quot; tooltip=&quot;Hospital_Reservation/WebContent/hello.jsp&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Hospital_Reservation/WebContent/hello.jsp&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.jst.jsp.core.jspsource.source</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_bbf88ACvEeatpNkqPCK1Fw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="index.html" iconURI="platform:/plugin/org.eclipse.wst.html.ui/icons/full/obj16/sourceEditor.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wst.html.core.htmlsource.source&quot; name=&quot;index.html&quot; partName=&quot;index.html&quot; title=&quot;index.html&quot; tooltip=&quot;Hospital_Reservation/WebContent/index.html&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Hospital_Reservation/WebContent/index.html&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1191&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.wst.html.core.htmlsource.source</tags>
+          <tags>removeOnHide</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
+        </children>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_dneiHACuEeacKvuyPDyOHw" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.gif" tooltip="" closeable="true">
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1460466225309&quot; org.eclipse.cdt.ui.cview.groupincludes=&quot;false&quot; org.eclipse.cdt.ui.cview.groupmacros=&quot;false&quot; org.eclipse.cdt.ui.editor.CUChildren=&quot;true&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_dpQqcACuEeacKvuyPDyOHw" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -238,7 +251,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_desZMgCuEeacKvuyPDyOHw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_-zrA5wCuEeaA2e8rRa64qg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_dIUjCQCuEeacKvuyPDyOHw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_P4QjRwCvEeatpNkqPCK1Fw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_dIUjCQCuEeacKvuyPDyOHw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_desZMwCuEeacKvuyPDyOHw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -265,7 +278,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_desZNwCuEeacKvuyPDyOHw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_-zrA8QCuEeaA2e8rRa64qg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_dIUipQCuEeacKvuyPDyOHw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_P4QjUQCvEeatpNkqPCK1Fw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_dIUipQCuEeacKvuyPDyOHw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_desZOACuEeacKvuyPDyOHw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
