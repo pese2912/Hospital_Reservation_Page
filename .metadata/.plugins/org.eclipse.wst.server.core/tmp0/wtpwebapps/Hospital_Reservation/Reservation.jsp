@@ -7,7 +7,7 @@
 <meta name="Description" CONTENT="">
 <meta name="Classification" CONTENT="">
 <meta name="keywords" CONTENT="">
-<title>병원예약 솔루션</title>
+<title>Hospital_Reservation_Service!</title>
 <script language='JavaScript'>
 <!--
 function memLogin(){
@@ -28,7 +28,9 @@ function memLogin(){
 	<tr>
 		<td>
 			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
+			
 <script language='JavaScript'>
+
 <!--
 function yeyak(ydate,ytime,doctor,able){
 
@@ -41,6 +43,7 @@ function yeyak(ydate,ytime,doctor,able){
 function yeyakView(idx){
 	window.open('/admin/clinic/online_view.php?idx='+idx,'','width=550,height=400','scrollbars=no');
 }
+
 -->
 </script>
 
@@ -56,7 +59,7 @@ function yeyakView(idx){
 </ul>
 
 <div class="reserv_num_box">
- 	<div class="tit">2016년 04월 13일 진료예약 일정 :</div>
+ 	<div class="tit">2016년 04월 14일 진료예약 일정 :</div>
 </div>
 
 <table width="100%" class="online_style">
