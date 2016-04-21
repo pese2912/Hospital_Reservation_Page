@@ -30,11 +30,11 @@
         <div id="navbar" class="navbar-collapse collapse" >
           <form class="navbar-form navbar-right">    
             <a class="btn btn-success" href="loginForm.jsp" role="button">로그인</a>
-            <a class="btn btn-success" href="inputForm.jsp" role="button">회원가입</a>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+    
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div>
       <div class="container">
@@ -46,9 +46,9 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>진료 예약</h2>
+          <p>원하는 시간과 의사에게 진료를 예약해주세요 </p>
+          <p><a class="btn btn-default" href="Reservation.jsp" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Heading</h2>

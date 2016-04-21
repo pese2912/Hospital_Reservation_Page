@@ -1,0 +1,18 @@
+<%@ page  contentType="text/html; charset=UTF-8"%>
+<% 
+   if(session.getAttribute("memId")==null){
+	 String ydate=request.getParameter("ydate");
+	 String ytime=request.getParameter("ytime");
+	 String doctor=request.getParameter("doctor");
+	   response.sendRedirect("rsv_LoginForm.jsp?ydate="+ydate+ "&ytime="+ytime+"&doctor="+doctor+"','width=550,height=400','scrollbars=no");   
+%>
+
+     <%}else{
+    	 String ydate=request.getParameter("ydate");
+    	 String ytime=request.getParameter("ytime");
+    	 String doctor=request.getParameter("doctor");
+    	 response.sendRedirect("rsv_diagnosis.jsp?ydate="+ydate+ "&ytime="+ytime+"&doctor="+doctor+"','width=550,height=400','scrollbars=no"); 
+     %> 
+    
+
+ <%} %>

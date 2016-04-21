@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "com.dao.MemberDao" %>
+
+<%
+	request.setCharacterEncoding("utf-8");
+	
+%>
+
+<%= request.getParameter("doctor") %>
+<%= request.getParameter("ydate") %>
+<%= request.getParameter("id") %>
+
+
+<script>
+alert("진료예약이 완료되었습니다.");
+window.close();
+</script>
+
+

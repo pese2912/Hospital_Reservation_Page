@@ -114,8 +114,11 @@ public class MemberDao {
 
 	}
 
+	
+	
 	// 회원 아이디 , 비밀번호 체크
 
+	
 	public int userCheck(String id, String passwd) throws Exception {
 
 		Class.forName("com.mysql.jdbc.Driver");
