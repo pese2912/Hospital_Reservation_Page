@@ -3,15 +3,14 @@
 
    if(session.getAttribute("memId")==null){
 	   response.sendRedirect("loginForm.jsp");   
-   
+%>
 
-
-  }else{
+     <%}else{
     	 String ydate=request.getParameter("ydate");
     	 String ytime=request.getParameter("ytime");
     	 String doctor=request.getParameter("doctor");
     	 response.sendRedirect("rsv_diagnosis.jsp?ydate="+ydate+ "&ytime="+ytime+"&doctor="+doctor+""); 
-
+     %> 
     
-  }
-%>
+
+ <%} %>

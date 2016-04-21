@@ -2,16 +2,18 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="&apos;&lt;%=year %&gt;-&lt;%=month %&gt;-&lt;%= day %&gt;&apos;" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&apos;2016-04-13&apos;"/>
 			<item value="lead"/>
 			<item value="/admin/clinic/image/btn_reserv_ok.gif"/>
 		</list>
 		<list key="replacehistory">
+			<item value="&apos;&lt;%=year %&gt;-&lt;%=month %&gt;-&lt;%= day %&gt;&apos;"/>
 			<item value="btn_reserv_ok.gif"/>
 		</list>
 	</section>
@@ -19,7 +21,7 @@
 		<item value="261" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="999" key="DIALOG_X_ORIGIN"/>
+		<item value="924" key="DIALOG_X_ORIGIN"/>
 		<item value="280" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -4,15 +4,15 @@
 
 <%
 
-    String memId = (String)session.getAttribute("memId"); 
+    String memId = (String)session.getAttribute("memId"); //아이디
     MemberDao manager = MemberDao.getInstance();
     Member c = manager.getMember(memId);
     
-    String pass = c.getPasswd();
-    String name = c.getName();
-    String jumin = c.getJumin1() +"-" +  c.getJumin2();
-    String email = c.getEmail();
-    String blog = c.getBlog();
+    String pass = c.getPasswd(); //비번
+    String name = c.getName(); //이름
+    String jumin = c.getJumin1() +"-" +  c.getJumin2(); //주민등록 번호
+    String email = c.getEmail(); //이메일
+    String blog = c.getBlog();//블로그
     
     String  ydate = request.getParameter("ydate");
     String ytime = request.getParameter("ytime");
