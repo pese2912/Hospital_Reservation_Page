@@ -30,6 +30,7 @@
         <div id="navbar" class="navbar-collapse collapse" >
           <form class="navbar-form navbar-right">    
             <a class="btn btn-success" href="loginForm.jsp" role="button">로그인</a>
+            <a class="btn btn-success" href="inputForm.jsp" role="button">회원가입</a>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
