@@ -15,8 +15,8 @@
     String blog = c.getBlog();//블로그
     
     String  ydate = request.getParameter("ydate");
-    String ytime = request.getParameter("ytime");
     String doctor = request.getParameter("doctor");
+    String subject = request.getParameter("subject");
     
     if(c.getEmail()==null){
     	c.setEmail("");	
@@ -97,9 +97,17 @@
         <div class="form-group">
           <label class="col-sm-3 control-label" for="inputPassword">예약일자</label>
         	<div class="col-sm-6">
-          <input class="form-control" id="inputPassword" name="ydate" type="text" readonly="readonly" value ="<%=ydate %> <%=ytime %>" >     
+          <input class="form-control" id="inputPassword" name="ydate" type="text" readonly="readonly" value ="<%=ydate %>" >     
         	</div>
         </div>
+        
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputPassword">진료과목</label>
+        	<div class="col-sm-6">
+          <input class="form-control" id="inputPassword" name="subject" type="text" readonly="readonly" value ="<%=subject %>" >     
+        	</div>
+        </div>
+        
         
          <div class="form-group">
             <label class="col-sm-3 control-label" for="inputName">환자ID</label>
@@ -116,6 +124,7 @@
                 </div>
              </div>
         </div>
+        
         <div class="form-group">
           <label class="col-sm-3 control-label" for="inputEmail">환자 이메일주소</label>
         <div class="col-sm-6">

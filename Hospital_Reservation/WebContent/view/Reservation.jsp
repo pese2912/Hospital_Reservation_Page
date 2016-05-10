@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="java.net.URLEncoder"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
@@ -10,11 +10,12 @@
 <meta name="keywords" CONTENT="">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-<!-- ∫Œ∞°¿˚¿Œ ≈◊∏∂ -->
+<!-- Î∂ÄÍ∞ÄÏ†ÅÏù∏ ÌÖåÎßà -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-
-<!-- «’√ƒ¡ˆ∞Ì √÷º“»≠µ» √÷Ω≈ ¿⁄πŸΩ∫≈©∏≥∆Æ -->
+<script   src="https://code.jquery.com/jquery-1.12.3.js"     crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/jquery-migrate-1.4.0.js"    crossorigin="anonymous"></script>
+<!-- Ìï©Ï≥êÏßÄÍ≥† ÏµúÏÜåÌôîÎêú ÏµúÏã† ÏûêÎ∞îÏä§ÌÅ¨Î¶ΩÌä∏ -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <link href="jumbotron.css" rel="stylesheet">
@@ -48,8 +49,8 @@ function memLogin(){
 	<tr style="font-size:15px">
 	
 		<td align="right"><br>
-		<a href="Reservation.jsp"><b>[øπæ‡«œ±‚]</b></a> 
-				<a href="rsv_Confirm.jsp"><b>[øπæ‡≥ªø™ »Æ¿Œ]</b></a>
+		<a href="Reservation.jsp"><b>[ÏòàÏïΩÌïòÍ∏∞]</b></a> 
+				<a href="rsv_Confirm.jsp"><b>[ÏòàÏïΩÎÇ¥Ïó≠ ÌôïÏù∏]</b></a>
 				</td>	
 	</tr>
 	<tr>
@@ -58,22 +59,23 @@ function memLogin(){
 			
 <script language='JavaScript'>
 
-<%
-	java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyyMMdd");
-	String today = formatter.format(new java.util.Date());
-	String year = today.substring(0, 4);
-	String month = today.substring(4, 6);
-	String day = today.substring(6,8);
-%>
 
 
 
-function yeyak(ydate,ytime,doctor){
 
-				window.open('rsv_Login.jsp?ydate='+ydate+'&ytime='+ytime+'&doctor='+doctor+'',"hello","width=600,height=500");
-			//window.open("","","width=200,height=100");
+function yeyak(){
+	
+	ydate = document.getElementById("date").value //Ï∫òÎ¶∞ÎçîÏùò ÎÇ†ÏßúÏôÄ ÏãúÍ∞ÑÏùÑ ÏÑ†ÌÉùÏãú
+	doctor = $("select[name=doctor]").val() // ÏßÑÎ£åÎ∞õÏùÑ ÏùòÏÇ¨ ÏÑ†ÌÉùÏãú
+	subject = $("select[name=subject]").val() // ÏßÑÎ£åÍ≥ºÎ™© ÏÑ†ÌÉù Ïãú
+	
+    window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"ÏòàÏïΩÏ†ïÎ≥¥","width=600,height=500");
+
+			//Í∞íÏùÑ ÎÑòÍ≤®Ï§ÄÎã§.
+            
 			
 }
+
 function yeyakView(idx){
 	window.open('/admin/clinic/online_view.php?idx='+idx+'');
 }
@@ -81,974 +83,87 @@ function yeyakView(idx){
 
 </script>
 
+<link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+<script>
+
+$(function(){
+  $('.datetimepicker').appendDtpicker({'locale':'ko'});
+});
+</script>
+
+
+
+
 <ul class="reserv_box" style="font-size:11px;">
-   <li style="font-size:30px;color:green; text-align:center;"> ∫ŒªÍ¥Î∫¥ø¯</li>
-   <li class="reserv_dot">øπæ‡¿∫ ∑Œ±◊¿Œ«œº≈æﬂ ¡¯∑· øπæ‡¿ª «œΩ« ºˆ ¿÷¿∏∏Á <span class="green_point">3¿œ ¿¸∫Œ≈Õ øπæ‡¿Ã ∞°¥…«’¥œ¥Ÿ.</span></li>
-   <li class="reserv_dot"><span class="green_point">¥Á¿œ øπæ‡¿∫ 2Ω√∞£ ¿¸±Ó¡ˆ ∞°¥…</span>«’¥œ¥Ÿ.</li>
-   <li class="reserv_dot">¡ﬂ∫π øπæ‡¿∫ µ«¡ˆ æ ¿∏∏Á, ¡ﬂ∫π øπæ‡Ω√ ∞°¿Â ∫¸∏• Ω√∞£∏∏ ¿˚øÎµ«ø¿¥œ ¿Ø¿« πŸ∂¯¥œ¥Ÿ.</li>
-   <li class="reserv_dot">øπæ‡ »ƒ <span class="green_point">¡¯∑·øπæ‡∫Ò∏¶ ∞Ë¡¬π¯»£∑Œ º€±›«ÿ ¡÷º≈æﬂ øπæ‡¿Ã øœ∑·</span>µÀ¥œ¥Ÿ.</li>
-   <li class="reserv_dot">øπæ‡Ω√∞£¿∫ ∫¥ø¯ ªÁ¡§ø° µ˚∂Û ¡ˆø¨, ∫Ø∞Êµ… ºˆ ¿÷¿∏¥œ ¡¢ºˆ√≥ø° »Æ¿Œ«ÿ ¡÷Ω√±‚ πŸ∂¯¥œ¥Ÿ.</li>
-   <li class="reserv_dot">øπæ‡Ω√∞£ 10∫–¿¸±Ó¡ˆ ¡¯∑·Ω« æ’ø° µµ¬¯«œº≈æﬂ «œ∏Á, ±◊∑∏¡ˆ æ ¿ª ∞ÊøÏ øπæ‡¿Ã √Îº“µ… ºˆ ¿÷Ω¿¥œ¥Ÿ.</li> 
-   <li class="reserv_dot">øπæ‡ √Îº“ π◊ ¡§¡§Ω√ 02-000-0000∑Œ ø¨∂Ù¡÷Ω√±‚ πŸ∂¯¥œ¥Ÿ.</li>
+   <li style="font-size:30px;color:green; text-align:center;"> Î∂ÄÏÇ∞ÎåÄÎ≥ëÏõê</li>
+   <li class="reserv_dot">ÏòàÏïΩÏùÄ Î°úÍ∑∏Ïù∏ÌïòÏÖîÏïº ÏßÑÎ£å ÏòàÏïΩÏùÑ ÌïòÏã§ Ïàò ÏûàÏúºÎ©∞ <span class="green_point">3Ïùº Ï†ÑÎ∂ÄÌÑ∞ ÏòàÏïΩÏù¥ Í∞ÄÎä•Ìï©ÎãàÎã§.</span></li>
+   <li class="reserv_dot"><span class="green_point">ÎãπÏùº ÏòàÏïΩÏùÄ 2ÏãúÍ∞Ñ Ï†ÑÍπåÏßÄ Í∞ÄÎä•</span>Ìï©ÎãàÎã§.</li>
+   <li class="reserv_dot">Ï§ëÎ≥µ ÏòàÏïΩÏùÄ ÎêòÏßÄ ÏïäÏúºÎ©∞, Ï§ëÎ≥µ ÏòàÏïΩÏãú Í∞ÄÏû• Îπ†Î•∏ ÏãúÍ∞ÑÎßå Ï†ÅÏö©ÎêòÏò§Îãà Ïú†Ïùò Î∞îÎûçÎãàÎã§.</li>
+   <li class="reserv_dot">ÏòàÏïΩ ÌõÑ <span class="green_point">ÏßÑÎ£åÏòàÏïΩÎπÑÎ•º Í≥ÑÏ¢åÎ≤àÌò∏Î°ú ÏÜ°Í∏àÌï¥ Ï£ºÏÖîÏïº ÏòàÏïΩÏù¥ ÏôÑÎ£å</span>Îê©ÎãàÎã§.</li>
+   <li class="reserv_dot">ÏòàÏïΩÏãúÍ∞ÑÏùÄ Î≥ëÏõê ÏÇ¨Ï†ïÏóê Îî∞Îùº ÏßÄÏó∞, Î≥ÄÍ≤ΩÎê† Ïàò ÏûàÏúºÎãà Ï†ëÏàòÏ≤òÏóê ÌôïÏù∏Ìï¥ Ï£ºÏãúÍ∏∞ Î∞îÎûçÎãàÎã§.</li>
+   <li class="reserv_dot">ÏòàÏïΩÏãúÍ∞Ñ 10Î∂ÑÏ†ÑÍπåÏßÄ ÏßÑÎ£åÏã§ ÏïûÏóê ÎèÑÏ∞©ÌïòÏÖîÏïº ÌïòÎ©∞, Í∑∏Î†áÏßÄ ÏïäÏùÑ Í≤ΩÏö∞ ÏòàÏïΩÏù¥ Ï∑®ÏÜåÎê† Ïàò ÏûàÏäµÎãàÎã§.</li> 
+   <li class="reserv_dot">ÏòàÏïΩ Ï∑®ÏÜå Î∞è Ï†ïÏ†ïÏãú 02-000-0000Î°ú Ïó∞ÎùΩÏ£ºÏãúÍ∏∞ Î∞îÎûçÎãàÎã§.</li>
 </ul>
 
+<div class="panel panel-default" style="font-size:30px;">
+  <!-- Default panel contents -->
+  <div class="panel-heading">ÏùòÎ£åÏßÑ ÏÑ†ÌÉù</div>
 
-
-<div class="reserv_num_box">
- 	<div class="tit"><%=year %>≥‚ <%=month %>ø˘ <%= day %>¿œ ¡¯∑·øπæ‡ ¿œ¡§ </div>
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">
+    <select name="doctor">
+ 		<option value="1">ÏùòÏÇ¨1</option>
+ 		<option value="2">ÏùòÏÇ¨2</option>
+ 		<option value="3">ÏùòÏÇ¨3</option>
+ 		<option value="4">ÏùòÏÇ¨4</option>
+ 		<option value="5">ÏùòÏÇ¨5</option>
+ 		<option value="6">ÏùòÏÇ¨6</option>
+ 		<option value="7">ÏùòÏÇ¨7</option>
+ 		<option value="8">ÏùòÏÇ¨8</option>
+ 	
+	</select>
+    </li>
+  </ul>
 </div>
 
-<table width="100%" class="online_style">
-  <colgroup>
-    <col width="10%">
-    <col width="15%">    
-    <col>
-    <col>    
-    <col>
-  </colgroup>
-  <thead>
-    <tr>
-    
-      <th colspan="2">Ω√∞£</th>
-            <th>¿«ªÁ1</th>
-    	      <th>¿«ªÁ2</th>
-    	      <th>¿«ªÁ3</th>
-    	      <th>¿«ªÁ4</th>
-    	      <th>¿«ªÁ5</th>
-    	      <th>¿«ªÁ6</th>
-    	      <th>¿«ªÁ7</th>
-    	      <th>¿«ªÁ8</th>
-    	      <th>¿«ªÁ9</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-  		  <tr bgcolor="#ffffff" align="center">
-	      <td rowspan="4" class="bold_point">10:00</td>	      <td class="green_Point">10:00</td>
-	      	      <td>
-	      					<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','1','Y');" style="cursor:hand;"/>     </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      					<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','3','Y');" style="cursor:hand;"/>      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">10:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-							<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','3','Y');" style="cursor:hand;"/>      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">10:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">10:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','10:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      <td rowspan="4" class="bold_point">11:00</td>	      <td class="green_Point">11:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">11:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">11:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">11:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','11:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      <td rowspan="4" class="bold_point">12:00</td>	      <td class="green_Point">12:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">12:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">12:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">12:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','12:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      <td rowspan="4" class="bold_point">13:00</td>	      <td class="green_Point">13:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">13:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">13:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">13:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','13:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      <td rowspan="4" class="bold_point">14:00</td>	      <td class="green_Point">14:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">14:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">14:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">14:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','14:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      <td rowspan="4" class="bold_point">15:00</td>	      <td class="green_Point">15:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">15:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">15:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">15:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','15:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      <td rowspan="4" class="bold_point">16:00</td>	      <td class="green_Point">16:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">16:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">16:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">16:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','16:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      <td rowspan="4" class="bold_point">17:00</td>	      <td class="green_Point">17:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">17:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">17:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">17:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','17:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      <td rowspan="4" class="bold_point">18:00</td>	      <td class="green_Point">18:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">18:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">18:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">18:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','18:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      <td rowspan="4" class="bold_point">19:00</td>	      <td class="green_Point">19:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">19:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">19:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#fafaf9" align="center">
-	      	      <td class="green_Point">19:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','19:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      <td rowspan="4" class="bold_point">20:00</td>	      <td class="green_Point">20:00</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:00','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">20:15</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:15','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">20:30</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:30','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		  	<tr bgcolor="#ffffff" align="center">
-	      	      <td class="green_Point">20:45</td>
-	      	      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','1','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','2','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','3','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','4','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','5','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','6','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','7','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','8','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		      <td>
-	      		      		<img src="btn_reserv_ok.gif" alt="øπæ‡∞°¥… " width="58" height="20" border="0" onClick="yeyak('<%=year %>-<%=month %>-<%= day %>','20:45','9','Y');" style="cursor:hand;"/>	      			      		      </td>
-	    		    </tr>   
-  		</tbody>
-</table><br>
-		</td>
-	</tr>
+<div class="panel panel-default" style="font-size:30px;">
+  <!-- Default panel contents -->
+  <div class="panel-heading">ÏòàÏïΩÏùº Ï†ïÎ≥¥</div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item"><div class="tit"><input type="text" class='datetimepicker' id="date" value=""> </div></li>
+  </ul>
+</div>
+
+<div class="panel panel-default" style="font-size:30px;">
+  <!-- Default panel contents -->
+  <div class="panel-heading">ÏßÑÎ£åÍ≥ºÎ™© ÏÑ†ÌÉù</div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">
+    <select name="subject">
+ 		<option value="Internal Medicine">ÎÇ¥Í≥º</option>
+ 		<option value="General Surgery">Ïô∏Í≥º</option>
+ 		<option value="Department of neurology">Ïã†Í≤ΩÍ≥º</option>
+ 		<option value="Otolaryngology">Ïù¥ÎπÑÏù∏ÌõÑÍ≥º</option>
+ 		<option value="Chest Surgey">ÌùâÎ∂Ä Ïô∏Í≥º</option>
+ 		<option value="Gynecology">ÏÇ∞Î∂ÄÏù∏Í≥º</option>
+ 		<option value="Dermatology">ÎπÑÎá®Í∏∞Í≥º</option>
+ 		<option value="Orthopedic Surgey">Ï†ïÌòï Ïô∏Í≥º</option>
+ 	
+	</select>
+    </li>
+  </ul>
+</div>
+ <button class="btn btn-primary" onClick="yeyak()">ÏòàÏïΩÌïòÍ∏∞<i class="fa fa-check spaceLeft"></i></button>
+</br>
+</td>
+</tr>
 </table>
+
+ 
