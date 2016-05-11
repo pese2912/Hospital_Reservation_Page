@@ -19,7 +19,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <link href="jumbotron.css" rel="stylesheet">
-<title>Hospital_Reservation_Service!</title>
+<title>예약하기</title>
 <script language='JavaScript'>
 
 <!--

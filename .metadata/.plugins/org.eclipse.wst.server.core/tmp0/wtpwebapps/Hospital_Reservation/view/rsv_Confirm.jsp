@@ -1,56 +1,98 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@page import="com.domain.Reservation"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.dao.ReservationDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.util.List"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å CSS -->
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<meta name="Description" CONTENT="">
+<meta name="Classification" CONTENT="">
+<meta name="keywords" CONTENT="">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-<!-- ºÎ°¡ÀûÀÎ Å×¸¶ -->
+<!-- ë¶€ê°€ì ì¸ í…Œë§ˆ -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å ÀÚ¹Ù½ºÅ©¸³Æ® -->
+<script   src="https://code.jquery.com/jquery-1.12.3.js"     crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/jquery-migrate-1.4.0.js"    crossorigin="anonymous"></script>
+<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  ìë°”ìŠ¤í¬ë¦½íŠ¸ -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
-</head>
-<body>
 
-<div style="overflow:hidden;">
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-8">
-                <div id="datetimepicker12"></div>
-            </div>
+<link href="jumbotron.css" rel="stylesheet">
+<title>ì˜ˆì•½ì •ë³´ í™•ì¸</title>
+<link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
+
+<%
+
+	String id = (String)session.getAttribute("memId"); 
+	ReservationDao manager = ReservationDao.getInstance();
+	List<Reservation> rvs = manager.getReservation(id);
+
+%>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="main.jsp">Hospital</a>
         </div>
     </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker12').datetimepicker({
-                inline: true,
-                sideBySide: true
-            });
-        });
-    </script>
-</div>
+</nav>
 
-<input id="fromDate" type="text">
-<input id="toDate" type="text">
+<table align="center" width="800" height="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:50px;">
+	<tr style="font-size:15px">
+		<td align="right"><br>
+		<a href="Reservation.jsp"><b>[ì˜ˆì•½í•˜ê¸°]</b></a> 
+				<a href="rsv_Confirm.jsp"><b>[ì˜ˆì•½ë‚´ì—­ í™•ì¸]</b></a>
+				</td>	
+	</tr>
+	<tr>
+		<td>
+			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
+	
+	
+			<div class="panel panel-default" style="font-size:30px;">
+  				<!-- Default panel contents -->
+  				<div class="panel-heading"><%= id%>ë‹˜ ì˜ˆì•½ë‚´ì—­ í™•ì¸</div>
+			</div>
+			
+			
+			<table class="table table-hover">
+             <tr style="color:#660000; font-size:30px">
+                <th>ì˜ë£Œì§„</th><th>ì˜ˆì•½ë‚ ì§œ</th><th>í™˜ìì´ë©”ì¼</th><th>ì§„ë£Œê³¼ëª©</th>
+            </tr>
+       			<%
+			
+						for(Reservation v : rvs){
+							%>				 
+							
+            <tr  style="cursor:pointer; font-size:20px" >
+                <td><%= v.getDoctor()%></td><td><%= v.getDate()%></td><td><%= v.getEmail()%></td><td><%= v.getSubject() %> 
+                
+            </tr>
+            				<%
+						}
+			
+					%>
+        
+        		
+       		 </table>
+</td>
+</tr>
+</table>
 
-<script>
-$('#fromDate').datetimepicker({
-	  language : 'ko', // È­¸é¿¡ Ãâ·ÂµÉ ¾ğ¾î¸¦ ÇÑ±¹¾î·Î ¼³Á¤ÇÑ´Ù.
-	  pickTime : false, // »ç¿ëÀÚ·ÎºÎÅÍ ½Ã°£ ¼±ÅÃÀ» Çã¿ëÇÏ·Á¸é true¸¦ ¼³Á¤ÇÏ°Å³ª pickTime ¿É¼ÇÀ» »ı·«ÇÑ´Ù.
-	  defalutDate : new Date() // ±âº»°ªÀ¸·Î ¿À´Ã ³¯Â¥¸¦ ÀÔ·ÂÇÑ´Ù. ±âº»°ªÀ» ÇØÁ¦ÇÏ·Á¸é defaultDate ¿É¼ÇÀ» »ı·«ÇÑ´Ù.
-	});
-
-	$('#toDate').datetimepicker({
-	  language : 'ko',
-	  pickTime : false,
-	  defalutDate : new Date()
-	});</script>
-</body>
-</html>
+ 

@@ -82,7 +82,6 @@ public class ReservationDao {
 			pstmt.setString(++cnt, reservation.getSubject());
 
 			
-
 			pstmt.setTimestamp(++cnt, reservation.getReg_date());
 
 			pstmt.executeUpdate();
@@ -184,7 +183,7 @@ public class ReservationDao {
 
 				rs = pstmt.executeQuery();
 
-				if (rs.next()) {
+				while (rs.next()) {
 
 					reservation = new Reservation();
 
@@ -200,6 +199,7 @@ public class ReservationDao {
 
 					reservation.setReg_date(rs.getTimestamp("reg_date"));
 					items.add(reservation);
+					
 
 				}
 
