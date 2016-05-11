@@ -1,0 +1,103 @@
+package com.dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import java.sql.ResultSet;
+
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import javax.naming.Context;
+
+import javax.naming.InitialContext;
+
+import com.domain.Member;
+import com.domain.Reservation;;
+
+public class ReservationDao {
+	
+	
+	private static ReservationDao instance = new ReservationDao();
+
+	public static ReservationDao getInstance() {
+
+		return instance;
+
+	}
+
+	private ReservationDao(){
+		
+	}
+	
+	
+	// 커네션풀로 부터 커넥션을 할당 받는 메소드
+
+	private Connection getConnection() throws Exception {
+
+		Class.forName("com.mysql.jdbc.Driver");
+        String jdbcDriver = "jdbc:mysql://localhost:3306/hospital";
+        String dbUser = "root";
+        String dbPwd = "dowjwn3614";
+        Connection conn = null;
+        conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
+        
+        
+		return conn;
+
+	}
+	
+	public void insertReservation(Reservation reservation) throws Exception {
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = null;
+
+		PreparedStatement pstmt = null;
+
+		String sql = "";
+
+		int cnt = 0;
+
+		try {
+
+			// 커넥션 풀로 부터 커넥션 할당
+
+			conn = getConnection();
+
+			sql = "insert into MEMBER values(?,?,?,?,?,?,?,?)";
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(++cnt, member.getId());
+
+			pstmt.setString(++cnt, member.getPasswd());
+
+			pstmt.setString(++cnt, member.getName());
+
+			pstmt.setString(++cnt, member.getJumin1());
+
+			pstmt.setString(++cnt, member.getJumin2());
+
+			pstmt.setString(++cnt, member.getEmail());
+
+			pstmt.setString(++cnt, member.getBlog());
+
+			pstmt.setTimestamp(++cnt, member.getReg_date());
+
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			execClose(null, pstmt, conn);
+
+		}
+
+	}
+
+
+}

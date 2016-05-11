@@ -1,0 +1,21 @@
+package com.domain;
+
+import java.sql.Timestamp;
+
+public class Reservation {
+	
+	private String id;
+
+	private String doctor;
+
+	private String date;
+
+	private String email;
+
+	private String subject;
+
+	private Timestamp reg_date;
+
+	
+
+}

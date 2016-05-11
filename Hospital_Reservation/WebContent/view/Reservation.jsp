@@ -76,10 +76,6 @@ function yeyak(){
 			
 }
 
-function yeyakView(idx){
-	window.open('/admin/clinic/online_view.php?idx='+idx+'');
-}
-
 
 </script>
 
@@ -115,14 +111,14 @@ $(function(){
   <ul class="list-group">
     <li class="list-group-item">
     <select name="doctor">
- 		<option value="1">의사1</option>
- 		<option value="2">의사2</option>
- 		<option value="3">의사3</option>
- 		<option value="4">의사4</option>
- 		<option value="5">의사5</option>
- 		<option value="6">의사6</option>
- 		<option value="7">의사7</option>
- 		<option value="8">의사8</option>
+ 		<option value="Doctor1">의사1</option>
+ 		<option value="Doctor2">의사2</option>
+ 		<option value="Doctor3">의사3</option>
+ 		<option value="Doctor4">의사4</option>
+ 		<option value="Doctor5">의사5</option>
+ 		<option value="Doctor6">의사6</option>
+ 		<option value="Doctor7">의사7</option>
+ 		<option value="Doctor8">의사8</option>
  	
 	</select>
     </li>

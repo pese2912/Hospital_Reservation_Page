@@ -6,8 +6,7 @@
 
     String memId = (String)session.getAttribute("memId"); //아이디
     MemberDao manager = MemberDao.getInstance();
-    Member c = manager.getMember(memId);
-    
+    Member c = manager.getMember(memId);    
     String pass = c.getPasswd(); //비번
     String name = c.getName(); //이름
     String jumin = c.getJumin1() +"-" +  c.getJumin2(); //주민등록 번호
@@ -25,6 +24,7 @@
     	c.setBlog("");
     }
     
+   
     
 %>
 
@@ -36,7 +36,6 @@
     
     
 	function Windowclose(){
-		console.log("1");
 		window.opener='Self';
 		window.open('','_parent','');
 		window.close();
@@ -90,14 +89,14 @@
          <div class="form-group">
             <label class="col-sm-3 control-label" for="inputName">담당의사</label>
           <div class="col-sm-6">
-            <input class="form-control" id="inputName" name="doctor" type="text" readonly="readonly" value = 의사<%=doctor %>>               
+            <input class="form-control" id="inputName" name="doctor" type="text" readonly="readonly" value = <%=doctor %>>               
           </div>
         </div>
         
         <div class="form-group">
           <label class="col-sm-3 control-label" for="inputPassword">예약일자</label>
         	<div class="col-sm-6">
-          <input class="form-control" id="inputPassword" name="ydate" type="text" readonly="readonly" value ="<%=ydate %>" >     
+          <input class="form-control" id="inputPassword" name="date" type="text" readonly="readonly" value ="<%=ydate %>" >     
         	</div>
         </div>
         
