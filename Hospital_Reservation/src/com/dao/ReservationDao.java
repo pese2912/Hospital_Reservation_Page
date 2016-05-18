@@ -44,8 +44,6 @@ public class ReservationDao {
         String dbPwd = "dowjwn3614";
         Connection conn = null;
         conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
-        
-        
 		return conn;
 
 	}
@@ -93,29 +91,21 @@ public class ReservationDao {
 		} finally {
 
 			execClose(null, pstmt, conn);
-
 		}
-
 	}
-	
 	
 	public int reservationCheck(String id, String date) throws Exception {
 
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = null;
-
 		PreparedStatement pstmt = null;
 
 		ResultSet rs = null;
-
 		String sql = "";
-
 		String dbdate = "";
-
+		
 		int x = -1;
-
 		try {
-
 			conn = getConnection();
 
 			sql = "select date from RESERVATION where id = ?";
@@ -125,35 +115,23 @@ public class ReservationDao {
 			pstmt.setString(1, id);
 
 			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-
+			
+			while (rs.next()) {
 				dbdate = rs.getString("date");
-
+				
 				if (dbdate.equals(date))
-
 					x = 0; // 중복
-
 				else
-
 					x = 1; // 예약성공
-
-			} else
-
-				x = 1; // 해당 아이디 없음
+			} 
 
 		} catch (Exception e) {
-
 			e.printStackTrace();
-
 		} finally {
-
 			execClose(rs, pstmt, conn);
-
 		}
-
+		
 		return x;
-
 	}
 	
 	// 예약 정보
@@ -240,7 +218,6 @@ public class ReservationDao {
 				conn.close();
 			} catch (SQLException sqle) {
 			}
-
 	}
 
 

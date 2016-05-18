@@ -76,7 +76,6 @@
                 <th>의료진</th><th>예약날짜</th><th>환자이메일</th><th>진료과목</th>
             </tr>
        			<%
-			
 						for(Reservation v : rvs){
 							%>				 
 							
