@@ -195,6 +195,64 @@ public class ReservationDao {
 
 		}
 	
+		public List<Reservation> getDoctorReservation(String id) throws Exception {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = null;
+
+			PreparedStatement pstmt = null;
+
+			ResultSet rs = null;
+
+			List<Reservation> items = new ArrayList<>();
+			Reservation reservation = null;
+
+			String sql = "";
+
+			try {
+
+				conn = getConnection();
+
+				sql = "select * from RESERVATION where doctor= ?";
+
+				pstmt = conn.prepareStatement(sql);
+
+				pstmt.setString(1, id);
+
+				rs = pstmt.executeQuery();
+
+				while (rs.next()) {
+
+					reservation = new Reservation();
+
+					reservation.setId(rs.getString("id"));
+
+					reservation.setDoctor(rs.getString("doctor"));
+
+					reservation.setDate(rs.getString("date"));
+
+					reservation.setEmail(rs.getString("email"));
+
+					reservation.setSubject(rs.getString("subject"));
+
+					reservation.setReg_date(rs.getTimestamp("reg_date"));
+					items.add(reservation);
+					
+
+				}
+
+			} catch (Exception ex) {
+
+				ex.printStackTrace();
+
+			} finally {
+
+				execClose(rs, pstmt, conn);
+
+			}
+
+			return items;
+
+		}
 	public void execClose(ResultSet rs, PreparedStatement pstmt, Connection conn) throws Exception {
 
 		// 자원정리

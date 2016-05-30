@@ -48,13 +48,13 @@
       <div class="row">
         <div class="col-md-4">
           <h2>진료 예약</h2>
-          <p>원하는 시간과 의사에게 진료를 예약해주세요 </p>
-          <p><a class="btn btn-default" href="Reservation.jsp" role="button">View details &raquo;</a></p>
+          <p>원하는 시간과 의사에게 진료를 예약해주세요 .</p>
+          <p><a class="btn btn-default" href="ReservationPro.jsp" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>담당 의사 예약 확인 </h2>
+          <p>의사들만이 예약내역을 확인하는 페이지입니다. </p>
+          <p><a class="btn btn-default" href="doctorPro.jsp" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
           <h2>Heading</h2>

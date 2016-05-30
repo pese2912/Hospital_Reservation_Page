@@ -13,6 +13,6 @@
     	 String subject = request.getParameter("subject");
     	 response.sendRedirect("rsv_diagnosis.jsp?ydate="+ydate+"&doctor="+doctor+"&subject="+subject+""); 
 
-    
+
   }
 %>
