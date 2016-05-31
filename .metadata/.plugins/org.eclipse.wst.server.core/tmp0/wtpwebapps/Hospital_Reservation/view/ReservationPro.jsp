@@ -9,7 +9,7 @@ if(session.getAttribute("memId")==null)
 	check = 0;
 
 
-else if(id.equals("Doctor1") || id.equals("Doctor2") || id.equals("Doctor3") || id.equals("Doctor4") || id.equals("Doctor5") || id.equals("Doctor6") || id.equals("Doctor7") || id.equals("Doctor8") ){
+else if(id.equals("Doctor1") || id.equals("Doctor2") || id.equals("Doctor3") || id.equals("Doctor4") || id.equals("Doctor5") || id.equals("Doctor6") || id.equals("Doctor7") || id.equals("Doctor8")|| id.equals("admin") ){
 	check=1;	
 }
 else

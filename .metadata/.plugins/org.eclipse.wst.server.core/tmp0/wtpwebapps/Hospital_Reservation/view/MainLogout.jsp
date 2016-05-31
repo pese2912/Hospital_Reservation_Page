@@ -62,9 +62,9 @@
           <p><a class="btn btn-default" href="doctorPro.jsp" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>관리자 확인</h2>
+          <p>관리자만이 접속하여 의사별 예약내역을 확인하는 페이지입니다.</p>
+          <p><a class="btn btn-default" href="adminPro.jsp" role="button">View details &raquo;</a></p>
         </div>
       </div>
 

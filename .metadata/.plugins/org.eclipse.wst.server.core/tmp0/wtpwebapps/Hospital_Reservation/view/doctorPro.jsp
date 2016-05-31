@@ -27,7 +27,7 @@ if(check==0){
 <%	}else if(check==1){ %>
 	
 	<script>
-	  alert("의사가 아닙니다.");
+	  alert("의사만 접근가능한 페이지입니다.");
 	  history.go(-1);
 	</script>
 	
