@@ -1,3 +1,5 @@
+<%@page import="com.domain.Schedule"%>
+<%@page import="com.dao.ScheduleDao"%>
 <%@page import="com.domain.Reservation"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.ReservationDao"%>
@@ -35,8 +37,12 @@
 	String id = (String)session.getAttribute("memId"); 
 	ReservationDao manager = ReservationDao.getInstance();
 	List<Reservation> rvs = manager.getDoctorReservation(id);
+	
+	ScheduleDao scheduleManager = ScheduleDao.getInstance();
+	List<Schedule> schedule = scheduleManager.getSchedule(id);
 
 %>
+
 
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -54,6 +60,8 @@
 </nav>
 
 <table align="center" width="800" height="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:50px;">
+
+
 
 	<tr>
 		<td>
@@ -87,6 +95,55 @@
        		 </table>
 </td>
 </tr>
+
+
+
+<tr>
+		<td>
+			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
+	
+	
+			<div class="panel panel-default" style="font-size:30px;">
+  				<!-- Default panel contents -->
+  				<div class="panel-heading">일정을 확인해주세요. </div>
+			</div>
+			 <a class="btn btn-lg btn-primary btn-block" onClick="todoList()"  role="button" style="width:100px;">일정 추가</a>
+			
+			<table class="table table-hover">
+             <tr style="color:#660000; font-size:30px">
+               <th>날짜</th><th>일정</th><th>장소</th>
+            </tr>
+       			<%
+						for(Schedule v : schedule){
+							%>				 
+							
+            <tr  style="cursor:pointer; font-size:20px" >
+                <td><%= v.getDate()%></td><td><%= v.getTodo()%></td><td><%= v.getLocation()%></td>
+                
+            </tr>
+            				<%
+						}
+			
+					%>
+        
+        		
+       		 </table>
+       		 <script>
+
+function todoList(){
+	
+	console.log(<%=id%>);
+    window.open('todoList.jsp?id='<%=id%>+'',"일정추가","width=600,height=500");
+			//값을 넘겨준다.         
+			
+}
+
+</script>
+</td>
+</tr>
 </table>
+
+
+
 
  

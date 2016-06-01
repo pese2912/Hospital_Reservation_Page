@@ -58,16 +58,11 @@ function memLogin(){
 			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
 			
 <script language='JavaScript'>
-
-
-
-
-
 function yeyak(){
 	
 	ydate = document.getElementById("date").value //캘린더의 날짜와 시간을 선택시
-	doctor = $("select[name=doctor]").val() // 진료받을 의사 선택시
-	subject = $("select[name=subject]").val() // 진료과목 선택 시
+	doctor = $("#subject option:selected").val(); // 진료받을 의사 선택시
+	subject = $("#subject option:selected").text();  // 진료과목 선택 시
 	
     window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
 
@@ -76,6 +71,11 @@ function yeyak(){
 			
 }
 
+function getSelectValue()
+{
+ textValue.value =$("#subject option:selected").val(); //selectBox.options[selectBox.selectedIndex].text;
+ optionValue.value = selectBox.options[selectBox.selectedIndex].value;
+}
 
 </script>
 
@@ -106,29 +106,12 @@ $(function(){
 <div class="panel panel-default" style="font-size:30px;">
   <!-- Default panel contents -->
   <div class="panel-heading">의료진 선택</div>
-
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item">
-    <select name="doctor">
- 		<option value="Doctor1">의사1</option>
- 		<option value="Doctor2">의사2</option>
- 		<option value="Doctor3">의사3</option>
- 		<option value="Doctor4">의사4</option>
- 		<option value="Doctor5">의사5</option>
- 		<option value="Doctor6">의사6</option>
- 		<option value="Doctor7">의사7</option>
- 		<option value="Doctor8">의사8</option>
- 	
-	</select>
-    </li>
-  </ul>
+<input type="text" name="textValue">
 </div>
 
 <div class="panel panel-default" style="font-size:30px;">
   <!-- Default panel contents -->
   <div class="panel-heading">예약일 정보</div>
-
   <!-- List group -->
   <ul class="list-group">
     <li class="list-group-item"><div class="tit"><input type="text" class='datetimepicker' id="date" value=""> </div></li>
@@ -142,15 +125,15 @@ $(function(){
   <!-- List group -->
   <ul class="list-group">
     <li class="list-group-item">
-    <select name="subject">
- 		<option value="Internal Medicine">내과</option>
- 		<option value="General Surgery">외과</option>
- 		<option value="Department of neurology">신경과</option>
- 		<option value="Otolaryngology">이비인후과</option>
- 		<option value="Chest Surgey">흉부 외과</option>
- 		<option value="Gynecology">산부인과</option>
- 		<option value="Dermatology">비뇨기과</option>
- 		<option value="Orthopedic Surgey">정형 외과</option>
+    <select id="subject" onChange="getSelectValue()">
+ 		<option value="Doctor1">Internal Medicine</option>
+ 		<option value="Doctor2">General Surgery</option>
+ 		<option value="Doctor3">Department of neurology</option>
+ 		<option value="Doctor4">Otolaryngology</option>
+ 		<option value="Doctor5">Chest Surgey</option>
+ 		<option value="Doctor6">Gynecology</option>
+ 		<option value="Doctor7">Dermatology</option>
+ 		<option value="Doctor8">Orthopedic Surgey</option>
  	
 	</select>
     </li>
