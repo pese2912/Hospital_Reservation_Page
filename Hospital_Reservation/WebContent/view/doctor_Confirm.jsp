@@ -28,7 +28,7 @@
 <title>담당의사 예약내역 확인</title>
 <link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link rel="shortcut icon" href="/img/favicon.ico" />
 
@@ -67,6 +67,17 @@
 		<td>
 			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
 	
+ 				<script language='JavaScript'>
+
+				function click(){
+					console.log(<%=id%>);
+   				//	 window.open('todoList.jsp?id='<%=id%>+'',"일정추가","width=600,height=500");
+					//값을 넘겨준다.         
+				
+					}
+
+				</script>
+
 	
 			<div class="panel panel-default" style="font-size:30px;">
   				<!-- Default panel contents -->
@@ -107,8 +118,9 @@
   				<!-- Default panel contents -->
   				<div class="panel-heading">일정을 확인해주세요. </div>
 			</div>
-			 <a class="btn btn-lg btn-primary btn-block" onClick="todoList()"  role="button" style="width:100px;">일정 추가</a>
 			
+			
+			 <button class="btn btn-primary" onClick="click">예약하기<i class="fa fa-check spaceLeft"></i></button>
 			<table class="table table-hover">
              <tr style="color:#660000; font-size:30px">
                <th>날짜</th><th>일정</th><th>장소</th>
@@ -126,19 +138,9 @@
 			
 					%>
         
-        		
+
        		 </table>
-       		 <script>
 
-function todoList(){
-	
-	console.log(<%=id%>);
-    window.open('todoList.jsp?id='<%=id%>+'',"일정추가","width=600,height=500");
-			//값을 넘겨준다.         
-			
-}
-
-</script>
 </td>
 </tr>
 </table>
