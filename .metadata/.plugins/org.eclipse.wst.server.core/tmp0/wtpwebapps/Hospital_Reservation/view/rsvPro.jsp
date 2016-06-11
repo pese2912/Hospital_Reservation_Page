@@ -24,7 +24,7 @@
 	ReservationDao manager = ReservationDao.getInstance();
     int check= manager.reservationCheck(id, date);
 
-	if(check==1){
+	if(check==1 ){
 		//예약 성공
 		manager.insertReservation(reservation);	
 		%>
@@ -40,6 +40,7 @@
       history.go(-1);
 	</script>
 <%	} %>
+
 
 
 

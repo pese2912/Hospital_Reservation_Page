@@ -33,16 +33,30 @@
 <link rel="shortcut icon" href="/img/favicon.ico" />
 
 <%
-
 	String id = (String)session.getAttribute("memId"); 
 	ReservationDao manager = ReservationDao.getInstance();
 	List<Reservation> rvs = manager.getDoctorReservation(id);
 	
 	ScheduleDao scheduleManager = ScheduleDao.getInstance();
 	List<Schedule> schedule = scheduleManager.getSchedule(id);
-
 %>
+<script type="text/javascript">
 
+function addtodo(id){
+	
+	//ydate = document.getElementById("date").value //캘린더의 날짜와 시간을 선택시
+	//doctor = $("#subject option:selected").val(); // 진료받을 의사 선택시
+	//subject = $("#subject option:selected").text();  // 진료과목 선택 시
+	
+	//var id ="Doctor1";
+    window.open('todoList.jsp?id='+id+'',"일정추가","width=600,height=500");
+			//값을 넘겨준다.
+  //  window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
+			
+}
+
+
+</script>
 
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -67,16 +81,7 @@
 		<td>
 			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
 	
- 				<script language='JavaScript'>
-
-				function click(){
-					console.log(<%=id%>);
-   				//	 window.open('todoList.jsp?id='<%=id%>+'',"일정추가","width=600,height=500");
-					//값을 넘겨준다.         
-				
-					}
-
-				</script>
+ 		
 
 	
 			<div class="panel panel-default" style="font-size:30px;">
@@ -108,7 +113,7 @@
 </tr>
 
 
-
+<table align="center" width="800" height="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:50px;">
 <tr>
 		<td>
 			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
@@ -120,7 +125,7 @@
 			</div>
 			
 			
-			 <button class="btn btn-primary" onClick="click">예약하기<i class="fa fa-check spaceLeft"></i></button>
+			
 			<table class="table table-hover">
              <tr style="color:#660000; font-size:30px">
                <th>날짜</th><th>일정</th><th>장소</th>
@@ -138,9 +143,9 @@
 			
 					%>
         
-
        		 </table>
 
+ 	<button class="btn btn-primary" onClick="addtodo('<%=id %>')">일정추가<i class="fa fa-check spaceLeft"></i></button>
 </td>
 </tr>
 </table>

@@ -1,6 +1,8 @@
 <%@page import="com.domain.Reservation"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.dao.ReservationDao"%>
+<%@page import="com.domain.Schedule"%>
+<%@page import="com.dao.ScheduleDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.List"%>
@@ -35,6 +37,9 @@
 	String id = (String)session.getAttribute("memId"); 
 	ReservationDao manager = ReservationDao.getInstance();
 	List<Reservation> rvs = manager.getDoctorReservation("Doctor1");
+	
+	ScheduleDao scheduleManager = ScheduleDao.getInstance();
+	List<Schedule> schedule = scheduleManager.getSchedule("Doctor1");
 
 %>
 
@@ -85,6 +90,28 @@
 							
             <tr  style="cursor:pointer; font-size:20px" >
                 <td><%= v.getId()%></td><td><%= v.getDate()%></td><td><%= v.getEmail()%></td><td><%= v.getSubject() %> 
+                
+            </tr>
+            				<%
+						}
+			
+					%>
+        
+        		
+       		 </table>
+       		 
+       		 
+  
+  			<table class="table table-hover">
+             <tr style="color:#660000; font-size:30px">
+                <th>날짜</th><th>할 일</th><th>장소</th>
+            </tr>
+       			<%
+						for(Schedule v : schedule){
+							%>				 
+							
+            <tr  style="cursor:pointer; font-size:20px" >
+                <td><%= v.getDate()%></td><td><%= v.getTodo()%></td><td><%= v.getLocation()%></td> 
                 
             </tr>
             				<%

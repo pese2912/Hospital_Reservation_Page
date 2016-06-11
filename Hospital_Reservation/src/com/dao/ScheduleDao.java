@@ -153,7 +153,7 @@ public class ScheduleDao {
 
 				conn = getConnection();
 
-				sql = "select * from RESERVATION where id= ?";
+				sql = "select * from SCHEDULE where id= ?";
 
 				pstmt = conn.prepareStatement(sql);
 
@@ -192,7 +192,6 @@ public class ScheduleDao {
 			}
 
 			return items;
-
 		}
 	
 		

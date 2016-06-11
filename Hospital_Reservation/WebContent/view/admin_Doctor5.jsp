@@ -4,6 +4,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.List"%>
+<%@page import="com.domain.Schedule"%>
+<%@page import="com.dao.ScheduleDao"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
@@ -35,6 +37,9 @@
 	String id = (String)session.getAttribute("memId"); 
 	ReservationDao manager = ReservationDao.getInstance();
 	List<Reservation> rvs = manager.getDoctorReservation("Doctor5");
+	
+	ScheduleDao scheduleManager = ScheduleDao.getInstance();
+	List<Schedule> schedule = scheduleManager.getSchedule("Doctor5");
 
 %>
 
@@ -85,6 +90,26 @@
 							
             <tr  style="cursor:pointer; font-size:20px" >
                 <td><%= v.getId()%></td><td><%= v.getDate()%></td><td><%= v.getEmail()%></td><td><%= v.getSubject() %> 
+                
+            </tr>
+            				<%
+						}
+			
+					%>
+        
+        		
+       		 </table>
+  			
+  				<table class="table table-hover">
+             <tr style="color:#660000; font-size:30px">
+                <th>날짜</th><th>할 일</th><th>장소</th>
+            </tr>
+       			<%
+						for(Schedule v : schedule){
+							%>				 
+							
+            <tr  style="cursor:pointer; font-size:20px" >
+                <td><%= v.getDate()%></td><td><%= v.getTodo()%></td><td><%= v.getLocation()%></td> 
                 
             </tr>
             				<%
