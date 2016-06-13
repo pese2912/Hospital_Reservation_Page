@@ -60,6 +60,22 @@ function reservation_confirm(id,date,email,subject){
   //  window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
 			
 }
+
+function reservation_register(){
+
+    window.open('admin_Doctor_Reservation_Register.jsp?id='+'Doctor1'+'',"의사예약내역등록","width=800,height=500");
+			//값을 넘겨준다.
+  //  window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
+			
+}
+
+function schedule_register(){
+
+    window.open('admin_Doctor_Register.jsp?id='+'Doctor1'+'',"의사일정등록","width=800,height=500");
+			//값을 넘겨준다.
+  //  window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
+			
+}
 </script>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -98,7 +114,7 @@ function reservation_confirm(id,date,email,subject){
   			
   			
   			<table class="table table-hover">
-             <tr style="color:#660000; font-size:30px">
+             <tr style="color:#660000; font-size:30px" onClick="reservation_register()">
                 <th>환자ID</th><th>예약날짜</th><th>환자이메일</th><th>진료과목</th>
             </tr>
        			<%
@@ -118,7 +134,7 @@ function reservation_confirm(id,date,email,subject){
        		 </table>
        		 
        		 		<table class="table table-hover">
-             <tr style="color:#660000; font-size:30px">
+             <tr style="color:#660000; font-size:30px"  onClick="schedule_register()">
                 <th>날짜</th><th>할 일</th><th>장소</th>
             </tr>
        			<%
