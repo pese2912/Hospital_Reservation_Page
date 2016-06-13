@@ -42,7 +42,24 @@
 	
 
 %>
+<script type="text/javascript">
 
+function schedule_confirm(id,date,todo,location){
+	
+    window.open('admin_Doctor_Confirm.jsp?id='+id+'&date='+date+'&todo='+todo+'&location='+location+'',"의사스케쥴확인","width=800,height=500");
+			//값을 넘겨준다.
+  //  window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
+			
+}
+function reservation_confirm(id,date,email,subject){
+
+    window.open('admin_Doctor_Reservation_Confrim.jsp?doc_id='+'Doctor8'+'&id='+id+'&date='+date+'&email='+email+'&subject='+subject+'',"의사예약내역확인","width=800,height=500");
+			//값을 넘겨준다.
+  //  window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
+			
+}
+
+</script>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -57,6 +74,7 @@
         </div>
     </div>
 </nav>
+
 
 <table align="center" width="800" height="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:50px;">
 
@@ -88,7 +106,7 @@
 						for(Reservation v : rvs){
 							%>				 
 							
-            <tr  style="cursor:pointer; font-size:20px" >
+            <tr  style="cursor:pointer; font-size:20px"  onClick="reservation_confirm('<%=v.getId()%>','<%=v.getDate()%>', '<%=v.getEmail()%>', '<%=v.getSubject()%>' )">
                 <td><%= v.getId()%></td><td><%= v.getDate()%></td><td><%= v.getEmail()%></td><td><%= v.getSubject() %> 
                 
             </tr>
@@ -108,7 +126,7 @@
 						for(Schedule v : schedule){
 							%>				 
 							
-            <tr  style="cursor:pointer; font-size:20px" >
+            <tr  style="cursor:pointer; font-size:20px" onClick="schedule_confirm('<%=v.getId()%>','<%=v.getDate()%>', '<%=v.getTodo()%>', '<%=v.getLocation()%>')">
                 <td><%= v.getDate()%></td><td><%= v.getTodo()%></td><td><%= v.getLocation()%></td> 
                 
             </tr>

@@ -128,7 +128,7 @@ $(function(){
     <select id="subject" onChange="getSelectValue()">
  		<option value="Doctor1">Internal Medicine</option>
  		<option value="Doctor2">General Surgery</option>
- 		<option value="Doctor3">Department of neurology</option>
+ 		<option value="Doctor3">neurology</option>
  		<option value="Doctor4">Otolaryngology</option>
  		<option value="Doctor5">Chest Surgey</option>
  		<option value="Doctor6">Gynecology</option>

@@ -134,6 +134,83 @@ public class ScheduleDao {
 		return x;
 	}
 	
+	
+	public void deleteSchedule(String id, String date) throws Exception {
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = null;
+
+		PreparedStatement pstmt = null;
+
+		String sql = null;
+
+		try {
+
+			conn = getConnection();
+
+			sql = "delete from SCHEDULE where id=? and date=?";
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, id);
+			pstmt.setString(2, date);
+
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			execClose(null, pstmt, conn);
+
+		}
+
+	}
+	
+	
+	public void updateSchedule(Schedule schedule, String old_date) throws Exception {
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = null;
+
+		PreparedStatement pstmt = null;
+
+		String sql = null;
+
+		int cnt = 0;
+
+		try {
+
+			conn = getConnection();
+
+			sql = "update SCHEDULE set date=?, todo=?,location=? where id=? and date=?";
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(++cnt, schedule.getDate());
+			pstmt.setString(++cnt, schedule.getTodo());
+			pstmt.setString(++cnt, schedule.getLocation());
+			pstmt.setString(++cnt, schedule.getId());
+			pstmt.setString(++cnt, old_date);
+
+
+			pstmt.executeUpdate();
+
+		} catch (Exception ex) {
+
+			ex.printStackTrace();
+
+		} finally {
+
+			execClose(null, pstmt, conn);
+
+		}
+
+	}
+	
+	
 	// 예약 정보
 
 		public List<Schedule> getSchedule(String id) throws Exception {

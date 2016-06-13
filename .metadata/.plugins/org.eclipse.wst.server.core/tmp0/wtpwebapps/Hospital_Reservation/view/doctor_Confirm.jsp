@@ -81,8 +81,7 @@ function addtodo(id){
 		<td>
 			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
 	
- 		
-
+ 	
 	
 			<div class="panel panel-default" style="font-size:30px;">
   				<!-- Default panel contents -->

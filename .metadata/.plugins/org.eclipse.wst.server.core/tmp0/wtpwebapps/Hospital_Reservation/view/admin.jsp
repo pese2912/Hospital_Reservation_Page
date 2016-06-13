@@ -40,8 +40,29 @@
 	
 	ScheduleDao scheduleManager = ScheduleDao.getInstance();
 	List<Schedule> schedule = scheduleManager.getSchedule("Doctor1");
-
+	
 %>
+
+<script type="text/javascript">
+
+function schedule_confirm(id,date,todo,location){
+	
+    window.open('admin_Doctor_Confirm.jsp?id='+id+'&date='+date+'&todo='+todo+'&location='+location+'',"의사스케쥴확인","width=800,height=500");
+			//값을 넘겨준다.
+  //  window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
+			
+}
+
+function reservation_confirm(id,date,email,subject){
+
+    window.open('admin_Doctor_Reservation_Confrim.jsp?doc_id='+'Doctor1'+'&id='+id+'&date='+date+'&email='+email+'&subject='+subject+'',"의사예약내역확인","width=800,height=500");
+			//값을 넘겨준다.
+  //  window.open('rsv_Login.jsp?ydate='+ydate+'&doctor='+doctor+'&subject='+subject+'',"예약정보","width=600,height=500");
+			
+}
+
+
+</script>
 
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -64,7 +85,6 @@
 		<td>
 			<br><link rel="stylesheet" type="text/css" href="/admin/clinic/style.css" />
 	
-	
 			<div class="panel panel-default" style="font-size:30px;">
   				<!-- Default panel contents -->
   				<div class="panel-heading"><%= id%>님 의사별 일정을 확인하세요.</div>
@@ -84,11 +104,11 @@
              <tr style="color:#660000; font-size:30px">
                 <th>환자ID</th><th>예약날짜</th><th>환자이메일</th><th>진료과목</th>
             </tr>
+            
        			<%
 						for(Reservation v : rvs){
 							%>				 
-							
-            <tr  style="cursor:pointer; font-size:20px" >
+            <tr  style="cursor:pointer; font-size:20px" onClick="reservation_confirm('<%=v.getId()%>','<%=v.getDate()%>', '<%=v.getEmail()%>', '<%=v.getSubject()%>' )">
                 <td><%= v.getId()%></td><td><%= v.getDate()%></td><td><%= v.getEmail()%></td><td><%= v.getSubject() %> 
                 
             </tr>
@@ -100,8 +120,6 @@
         		
        		 </table>
        		 
-       		 
-  
   			<table class="table table-hover">
              <tr style="color:#660000; font-size:30px">
                 <th>날짜</th><th>할 일</th><th>장소</th>
@@ -110,7 +128,7 @@
 						for(Schedule v : schedule){
 							%>				 
 							
-            <tr  style="cursor:pointer; font-size:20px" >
+            <tr  style="cursor:pointer; font-size:20px" onClick="schedule_confirm('<%=v.getId()%>','<%=v.getDate()%>', '<%=v.getTodo()%>', '<%=v.getLocation()%>')">
                 <td><%= v.getDate()%></td><td><%= v.getTodo()%></td><td><%= v.getLocation()%></td> 
                 
             </tr>

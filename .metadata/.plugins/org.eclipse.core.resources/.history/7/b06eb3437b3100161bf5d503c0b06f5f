@@ -1,0 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@page import="com.domain.Schedule"%>
+<%@page import="com.dao.ScheduleDao"%>    
+<%
+
+	String date = request.getParameter("date");
+	ScheduleDao manager = ScheduleDao.getInstance();
+	manager.deleteSchedule(date);
+	
+	
+%>

@@ -16,7 +16,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 
 import com.domain.Member;
-import com.domain.Reservation;;
+import com.domain.Reservation;
+import com.domain.Schedule;;
 
 public class ReservationDao {
 	
@@ -92,6 +93,86 @@ public class ReservationDao {
 
 			execClose(null, pstmt, conn);
 		}
+	}
+	
+	
+	public void deleteReservation(String id, String doctor ,String date) throws Exception {
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = null;
+
+		PreparedStatement pstmt = null;
+
+		String sql = null;
+
+		try {
+
+			conn = getConnection();
+
+			sql = "delete from RESERVATION where id=? and doctor=? and date =?";
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, id);
+			pstmt.setString(2, doctor);
+			pstmt.setString(3, date);
+
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			execClose(null, pstmt, conn);
+
+		}
+
+	}
+	
+	public void updateReservation(Reservation reservation, String old_id,String old_date) throws Exception {
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = null;
+
+		PreparedStatement pstmt = null;
+
+		String sql = null;
+
+		int cnt = 0;
+
+		try {
+
+			conn = getConnection();
+
+			sql = "update RESERVATION set id=?,date=?,email=?,subject=? where id=? and doctor=? and date=?";
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(++cnt, reservation.getId());
+			pstmt.setString(++cnt, reservation.getDate());
+			pstmt.setString(++cnt, reservation.getEmail());
+			pstmt.setString(++cnt, reservation.getSubject());
+			
+			pstmt.setString(++cnt, old_id);
+			pstmt.setString(++cnt, reservation.getDoctor());
+			pstmt.setString(++cnt, old_date);
+			
+
+
+			pstmt.executeUpdate();
+
+		} catch (Exception ex) {
+
+			ex.printStackTrace();
+
+		} finally {
+
+			execClose(null, pstmt, conn);
+
+		}
+
 	}
 	
 	public int reservationCheck(String id, String date) throws Exception {

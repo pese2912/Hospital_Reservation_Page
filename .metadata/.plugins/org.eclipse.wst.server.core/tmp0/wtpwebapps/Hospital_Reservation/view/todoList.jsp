@@ -26,18 +26,7 @@
 		
 	}
 
-	function addtodo(){
 
-		
-		id = document.getElementById("id").value // 아이디
-		date = document.getElementById("date").value //캘린더의 날짜와 시간을 선택시
-		todo = document.getElementById("todo").value //할일
-		location = document.getElementById("location").value //장소
-		
-	    window.open('todoPro.jsp?date='+date+'&id='+id+'&todo='+todo+'&location='+location+'',"일정추가","width=600,height=500");
-				//값을 넘겨준다.
-	            			
-	}
 </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
